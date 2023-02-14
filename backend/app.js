@@ -7,6 +7,7 @@ const mongoose = require('mongoose');
 const PORT = 3500 || process.env.PORT;
 const routes = require('./routes/root');
 const userRoutes = require('./routes/userRoutes')
+const noteRoutes = require('./routes/noteRoutes')
 const logEvents = require('./middleware/logger');
 const corsOptions = require('./config/corsOptions');
 
@@ -18,6 +19,7 @@ app.use(cookieParser());
 app.use(express.json({ limit: '50mb', extended: false }));
 app.use(express.urlencoded({ limit: '50mb', extended: false }));
 app.use('/user', userRoutes);
+app.use('/notes', noteRoutes);
 
 const main = async () => {
   mongoose.set('strictQuery', false);

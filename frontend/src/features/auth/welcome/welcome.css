@@ -1,0 +1,78 @@
+.main {
+  width: 100%;
+  height: 100vh;
+  background-image: url('./background.jpg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: grid;
+  place-content: center;
+}
+.text {
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.466);
+  display: grid;
+  place-content: center;
+  backdrop-filter: blur(3px);
+  color: #f1f5f8ce;
+  text-align: center;
+}
+
+.text > h1 {
+  font-size: 5rem;
+  margin-bottom: 3rem;
+  letter-spacing: 1px;
+}
+
+.text > h1::after {
+  content: '';
+  display: block;
+  margin: auto;
+  width: 100%;
+  height: 2px;
+  background-color: rgb(190, 174, 174);
+  margin-top: 5px;
+}
+
+.text > h3 {
+  font-weight: 500;
+  font-size: 1.8rem;
+  letter-spacing: 2px;
+  color: #f1f5f8;
+  margin-bottom: 5rem;
+}
+
+.sign-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20rem;
+}
+.green,.blue {
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  width: 12rem;
+  height: 3.3rem;
+  text-align: center;
+  padding: 1rem;
+  border-radius: 40px;
+  color: #dad6d6;
+  box-shadow: 0px 0px 6px 3px #ffffff;
+}
+
+.green {
+  background-color: rgba(4, 155, 4, 0.863);
+}
+.blue {
+    background-color: rgba(48, 97, 202, 0.87);
+}
+
+.blue:hover{
+    background-color: rgba(48, 97, 202);
+}
+.green:hover{
+    background-color: rgba(4, 155, 4);
+}

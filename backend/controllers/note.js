@@ -44,3 +44,6 @@ const updateNote = async (req, res) => {
     res.status(500).json({ msg: err.message });
   }
 };
+
+
+module.exports = {getAllNotes,deleteNote,updateNote,createNote}
