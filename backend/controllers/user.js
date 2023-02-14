@@ -32,12 +32,27 @@ const updateUser = async (req, res) => {
   try {
     // const { id } = req.params;
     const { username, roles, id, active } = req.body;
-    if (!username || !password || !Array.isArray(roles) || !roles.length || typeof(active) !==Boolean)
+    if (
+      !username
+      //|| !Array.isArray(roles) ||
+      // !roles.length ||
+      // typeof active !== 'boolean'
+    ) {
       return res.status(400).json({ msg: 'All fields are required' });
-    const user = User.findById(id).exec();
+    }
+    let user = await User.findById(id);
 
-    if(!user) 
-
+    if (!user) return res.status(401).json({ msg: 'user not found' });
+    const duplicate = await User.findOne({ username }).lean().exec();
+    if (duplicate && duplicate?._id.toString() !== id) {
+      return res.status(409).json({ msg: 'Duplicate username' });
+    }
+    user.username = username;
+    user.roles = roles;
+    user.active = active;
+    console.log(user);
+    const savedUser = await user.save();
+    res.json({ msg: `${savedUser.username} updated` });
   } catch (err) {
     res.status(500).json({ msg: err.message });
   }
@@ -45,9 +60,12 @@ const updateUser = async (req, res) => {
 const deleteUser = async (req, res) => {
   try {
     const { id } = req.params;
-    console.log(id);
+    const notes = await Note.findOne({user:id})
+    if(notes){
+      return res.status(400).json({msg:'User has assigned notes'})
+    }
     const user = await User.findByIdAndDelete(id);
-    res.json(user.username);
+    res.json({msg:`username ${user.username} with id ${user._id} is deleted`})
   } catch (err) {
     res.status(500).json({ msg: err.message });
   }
