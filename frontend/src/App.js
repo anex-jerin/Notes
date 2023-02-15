@@ -8,8 +8,8 @@ function App() {
   return (
     <BrowserRouter>
     <Routes>
-    <Route path='/' element={<Welcome/>}/>
       <Route element={<Layout/>}>
+    <Route path='/' element={<Welcome/>}/>
         <Route path='/login' element={<Login/>}/>
       </Route>
     </Routes>

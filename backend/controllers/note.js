@@ -41,7 +41,7 @@ const updateNote = async (req, res) => {
     const savedUser = await note.save();
     res.json({msg:`Note with title ${savedUser.title} updated`})
   } catch (err) {
-    res.status(500).json({ msg: err.message });
+    res.status(500).json({ msg: err.message }); 
   }
 };
 

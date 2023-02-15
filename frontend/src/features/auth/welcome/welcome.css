@@ -1,5 +1,5 @@
 .main {
-  width: 100%;
+  width: 100vw;
   height: 100vh;
   background-image: url('./background.jpg');
   background-position: center;
@@ -29,7 +29,7 @@
   content: '';
   display: block;
   margin: auto;
-  width: 100%;
+  position: relative;
   height: 2px;
   background-color: rgb(190, 174, 174);
   margin-top: 5px;
