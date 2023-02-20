@@ -1,0 +1,53 @@
+.l-section {
+  width: 60vw;
+  height: 80vh;
+  background-color: rgba(0, 0, 0, 0.466);
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  backdrop-filter: blur(3px);
+  border-radius: 20px;
+  align-items: center;
+  text-align: center;
+  color: #ffff;
+}
+
+.l-section>h1{
+    font-size: 3rem;
+    margin: 5rem;
+}
+.l-section > form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+
+.l-section>form>input{
+    margin-top: 2rem;
+    width: 40vw;
+    height: 3rem;
+    padding-left: 20px;
+    border-radius: 20px;
+    border: none;
+    outline: #ffff;
+    font-family: inherit;
+}
+
+.l-section>form>button{
+    width: 15rem;
+    height: 3rem;
+    margin: 3rem;
+    border: none;
+    border-radius:20px ;
+    background-color: rgba(4, 155, 4, 0.863);
+    cursor: pointer;
+    color: #ffff;
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+.l-section>form>button:hover{
+    background-color: rgba(4, 155, 4);
+}
